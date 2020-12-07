@@ -53,7 +53,7 @@ class Invoice
         JLabel a = new JLabel("| $"); //creates new JLabel
         JLabel sd2 = new JLabel("35.99"); //creates new JLabel
         JLabel b = new JLabel("| $"); //creates new JLabel
-        JLabel sd3 = new JLabel(""); //computes total price for specific item
+        JLabel sd3 = new JLabel(""); //creates new JLabel
         bindUnitsEntered(sd1, sd2, sd3); //computes total price for specific item
         screwdriver.add(sd); //adds label to panel
         screwdriver.add(sd1); //adds textField to panel
@@ -97,50 +97,56 @@ class Invoice
         toolbox.add(tb3); //adds label to panel
         frame.add(toolbox); //adds panel to frame
 
-//        JPanel toolbox = new JPanel(); //creates new JPanel
-//        JLabel tb = new JLabel("14'' Toolbox                    " + //creates new JLabel - spaces for format
-//                "                   "); //spaces for format
-//        JTextField tb1 = new JTextField(5); //creates new JTextField
-//        JTextField tb2 = new JTextField("$19.99", 5); //creates new JTextField
-//        //double priceA2 = Double.parseDouble(tb1.getText()); //converts quantity to double
-//        //double priceB2 = Double.parseDouble(tb2.getText()); //converts unit price to double
-//        //double tbAmt = priceA2 * priceB2; //multiplies quantity by unit price to get price
-//        JTextField tb3 = new JTextField("$", 5); //creates new JTextField
-//        toolbox.add(tb); //adds label to panel
-//        toolbox.add(tb1); //adds textField to panel
-//        toolbox.add(tb2); //adds textField to panel
-//        toolbox.add(tb3); //adds textField to panel
-//        frame.add(toolbox); //adds panel to frame
-//
-//        JPanel hammer = new JPanel(); //creates new JPanel
-//        JLabel h = new JLabel("16oz Hammer                 " + //creates new JLabel - spaces for format
-//                "                   "); //spaces for format
-//        JTextField h1 = new JTextField(5); //creates new JTextField
-//        JTextField h2 = new JTextField("$11.98", 5); //creates new JTextField
-//        //double priceA3 = Double.parseDouble(h1.getText()); //converts quantity to double
-//        //double priceB3 = Double.parseDouble(h2.getText()); //converts unit price to double
-//        //double hAmt = priceA3 * priceB3; //multiplies quantity by unit price to get price
-//        JTextField h3 = new JTextField("$", 5); //creates new JTextField
-//        hammer.add(h); //adds label to panel
-//        hammer.add(h1); //adds textField to panel
-//        hammer.add(h2); //adds textField to panel
-//        hammer.add(h3); //adds textField to panel
-//        frame.add(hammer); //adds panel to frame
-//
-//        JPanel ductTape = new JPanel(); //creates new JPanel
-//        JLabel dT = new JLabel("3 Pack Duct Tape          " + //creates new JLabel - spaces for format
-//                "                   "); //spaces for format
-//        JTextField dT1 = new JTextField(5); //creates new JTextField
-//        JTextField dT2 = new JTextField("$14.99", 5); //creates new JTextField
-//        //double priceA4 = Double.parseDouble(dT1.getText()); //converts quantity to double
-//        //double priceB4 = Double.parseDouble(dT2.getText()); //converts unit price to double
-//        //double dTAmt = priceA4 * priceB4; //multiplies quantity by unit price to get price
-//        JTextField dT3 = new JTextField("$", 5); //creates new JTextField
-//        ductTape.add(dT); //adds label to panel
-//        ductTape.add(dT1); //adds textField to panel
-//        ductTape.add(dT2); //adds textField to panel
-//        ductTape.add(dT3); //adds textField to panel
-//        frame.add(ductTape); //adds panel to frame
+        JPanel hammer = new JPanel(); //creates new JPanel
+        JLabel ha = new JLabel("16oz Hammer               " + //creates new JLabel - spaces for format
+                "     "); //spaces for format
+        JTextField ha1 = new JTextField(5); //creates new JTextField
+        JLabel g = new JLabel("| $"); //creates new JLabel
+        JLabel ha2 = new JLabel("11.98"); //creates new JLabel
+        JLabel h = new JLabel("| $"); //creates new JLabel
+        JLabel ha3 = new JLabel(""); //creates new JLabel
+        bindUnitsEntered(ha1, ha2, ha3); //computes total price for specific item
+        hammer.add(ha); //adds label to panel
+        hammer.add(ha1); //adds textField to panel
+        hammer.add(g); //adds label to panel
+        hammer.add(ha2); //adds label to panel
+        hammer.add(h); //adds label to panel
+        hammer.add(ha3); //adds label to panel
+        frame.add(hammer); //adds panel to frame
+
+        JPanel ductTape = new JPanel(); //creates new JPanel
+        JLabel dt = new JLabel("3 Pack Duct Tape               " + //creates new JLabel - spaces for format
+                "     "); //spaces for format
+        JTextField dt1 = new JTextField(5); //creates new JTextField
+        JLabel i = new JLabel("| $"); //creates new JLabel
+        JLabel dt2 = new JLabel("14.99"); //creates new JLabel
+        JLabel j = new JLabel("| $"); //creates new JLabel
+        JLabel dt3 = new JLabel(""); //creates new JLabel
+        bindUnitsEntered(dt1, dt2, dt3); //computes total price for specific item
+        ductTape.add(dt); //adds label to panel
+        ductTape.add(dt1); //adds textField to panel
+        ductTape.add(i); //adds label to panel
+        ductTape.add(dt2); //adds label to panel
+        ductTape.add(j); //adds label to panel
+        ductTape.add(dt3); //adds label to panel
+        frame.add(ductTape); //adds panel to frame
+
+        JPanel flashlight = new JPanel(); //creates new JPanel
+        JLabel fl = new JLabel("2 Pack Flashlight               " + //creates new JLabel - spaces for format
+                "     "); //spaces for format
+        JTextField fl1 = new JTextField(5); //creates new JTextField
+        JLabel k = new JLabel("| $"); //creates new JLabel
+        JLabel fl2 = new JLabel("9.97"); //creates new JLabel
+        JLabel l = new JLabel("| $"); //creates new JLabel
+        JLabel fl3 = new JLabel(""); //creates new JLabel
+        bindUnitsEntered(fl1, fl2, fl3); //computes total price for specific item
+        flashlight.add(fl); //adds label to panel
+        flashlight.add(fl1); //adds textField to panel
+        flashlight.add(k); //adds label to panel
+        flashlight.add(fl2); //adds label to panel
+        flashlight.add(l); //adds label to panel
+        flashlight.add(fl3); //adds label to panel
+        frame.add(flashlight); //adds panel to frame
 //
 //        JPanel flashlight = new JPanel(); //creates new JPanel
 //        JLabel fl = new JLabel("2 Pack Flashlight          " + //creates new JLabel - spaces for format
