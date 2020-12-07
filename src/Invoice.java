@@ -232,6 +232,14 @@ class Invoice
         adjustWrench.add(v); //adds label to panel
         adjustWrench.add(aw3); //adds label to panel
         adjustWrench.add(adjustWrench); //adds panel to frame
+
+        JPanel amtDue = new JPanel();
+        JLabel amount = new JLabel("Total Amount Due: ");
+        JLabel amt = new JLabel ("");
+        amountDue(sd3, mt3, tb3, ha3, dt3, fl3, pl3, uk3, pk3, hs3, aw3, amt);
+        amtDue.add(amount);
+        amtDue.add(amt);
+        frame.add(amtDue);
     }
 
     private static void bindUnitsEntered(JTextField units, JLabel pricePerUnit, JLabel total) {
@@ -262,5 +270,33 @@ class Invoice
                 }
             }
         });
+    }
+    private static void amountDue(JLabel a, JLabel b, JLabel c, JLabel d, JLabel e, JLabel f, JLabel g, JLabel h,
+                                  JLabel i, JLabel j, JLabel k, JLabel total) {
+        String aVal = a.getText();
+        String bVal = b.getText();
+        String cVal = c.getText();
+        String dVal = d.getText();
+        String eVal = e.getText();
+        String fVal = f.getText();
+        String gVal = g.getText();
+        String hVal = h.getText();
+        String iVal = i.getText();
+        String jVal = j.getText();
+        String kVal = k.getText();
+        double aValUnits = Double.parseDouble(aVal);
+        double bValUnits = Double.parseDouble(bVal);
+        double cValUnits = Double.parseDouble(cVal);
+        double dValUnits = Double.parseDouble(dVal);
+        double eValUnits = Double.parseDouble(eVal);
+        double fValUnits = Double.parseDouble(fVal);
+        double gValUnits = Double.parseDouble(gVal);
+        double hValUnits = Double.parseDouble(hVal);
+        double iValUnits = Double.parseDouble(iVal);
+        double jValUnits = Double.parseDouble(jVal);
+        double kaValUnits = Double.parseDouble(kVal);
+        double amtDue = aValUnits + bValUnits + cValUnits + dValUnits + eValUnits + fValUnits + gValUnits +
+                hValUnits + iValUnits + jValUnits + kaValUnits;
+        total.setText("" + amtDue);
     }
 }
