@@ -147,36 +147,91 @@ class Invoice
         flashlight.add(l); //adds label to panel
         flashlight.add(fl3); //adds label to panel
         frame.add(flashlight); //adds panel to frame
-//
-//        JPanel flashlight = new JPanel(); //creates new JPanel
-//        JLabel fl = new JLabel("2 Pack Flashlight          " + //creates new JLabel - spaces for format
-//                "                   "); //spaces for format
-//        JTextField fl1 = new JTextField(5); //creates new JTextField
-//        JTextField fl2 = new JTextField("$9.97", 5); //creates new JTextField
-//        //double priceA5 = Double.parseDouble(fl1.getText()); //converts quantity to double
-//        //double priceB5 = Double.parseDouble(fl2.getText()); //converts unit price to double
-//        //double dTAmt = priceA5 * priceB5; //multiplies quantity by unit price to get price
-//        JTextField fl3 = new JTextField("$", 5); //creates new JTextField
-//        flashlight.add(fl); //adds label to panel
-//        flashlight.add(fl1); //adds textField to panel
-//        flashlight.add(fl2); //adds textField to panel
-//        flashlight.add(fl3); //adds textField to panel
-//        frame.add(flashlight); //adds panel to frame
-//
-//        JPanel pliers = new JPanel(); //creates new JPanel
-//        JLabel p = new JLabel("6 Pack Pliers                 " + //creates new JLabel - spaces for format
-//                "                   "); //spaces for format
-//        JTextField p1 = new JTextField(5); //creates new JTextField
-//        JTextField p2 = new JTextField("$21.98", 5); //creates new JTextField
-//        //double priceA6 = Double.parseDouble(p1.getText()); //converts quantity to double
-//        //double priceB6 = Double.parseDouble(p2.getText()); //converts unit price to double
-//        //double pAmt = priceA6 * priceB6; //multiplies quantity by unit price to get price
-//        JTextField p3 = new JTextField("$", 5); //creates new JTextField
-//        pliers.add(p); //adds label to panel
-//        pliers.add(p1); //adds textField to panel
-//        pliers.add(p2); //adds textField to panel
-//        pliers.add(p3); //adds textField to panel
-//        frame.add(pliers); //adds panel to frame
+
+        JPanel pliers = new JPanel(); //creates new JPanel
+        JLabel pl = new JLabel("6 Pack Pliers               " + //creates new JLabel - spaces for format
+                "     "); //spaces for format
+        JTextField pl1 = new JTextField(5); //creates new JTextField
+        JLabel m = new JLabel("| $"); //creates new JLabel
+        JLabel pl2 = new JLabel("21.98"); //creates new JLabel
+        JLabel n = new JLabel("| $"); //creates new JLabel
+        JLabel pl3 = new JLabel(""); //creates new JLabel
+        bindUnitsEntered(pl1, pl2, pl3); //computes total price for specific item
+        pliers.add(pl); //adds label to panel
+        pliers.add(pl1); //adds textField to panel
+        pliers.add(m); //adds label to panel
+        pliers.add(pl2); //adds label to panel
+        pliers.add(n); //adds label to panel
+        pliers.add(pl3); //adds label to panel
+        frame.add(pliers); //adds panel to frame
+
+        JPanel utilityKnife = new JPanel(); //creates new JPanel
+        JLabel uk = new JLabel("2 Pack Utility Knife               " + //creates new JLabel - spaces for format
+                "     "); //spaces for format
+        JTextField uk1 = new JTextField(5); //creates new JTextField
+        JLabel o = new JLabel("| $"); //creates new JLabel
+        JLabel uk2 = new JLabel("15.99"); //creates new JLabel
+        JLabel p = new JLabel("| $"); //creates new JLabel
+        JLabel uk3 = new JLabel(""); //creates new JLabel
+        bindUnitsEntered(uk1, uk2, uk3); //computes total price for specific item
+        utilityKnife.add(uk); //adds label to panel
+        utilityKnife.add(uk1); //adds textField to panel
+        utilityKnife.add(o); //adds label to panel
+        utilityKnife.add(uk2); //adds label to panel
+        utilityKnife.add(p); //adds label to panel
+        utilityKnife.add(uk3); //adds label to panel
+        frame.add(utilityKnife); //adds panel to frame
+
+        JPanel puttyKnife = new JPanel(); //creates new JPanel
+        JLabel pk = new JLabel("3 Pack Putty Knife               " + //creates new JLabel - spaces for format
+                "     "); //spaces for format
+        JTextField pk1 = new JTextField(5); //creates new JTextField
+        JLabel q = new JLabel("| $"); //creates new JLabel
+        JLabel pk2 = new JLabel("10.45"); //creates new JLabel
+        JLabel r = new JLabel("| $"); //creates new JLabel
+        JLabel pk3 = new JLabel(""); //creates new JLabel
+        bindUnitsEntered(pk1, pk2, pk3); //computes total price for specific item
+        puttyKnife.add(pk); //adds label to panel
+        puttyKnife.add(pk1); //adds textField to panel
+        puttyKnife.add(q); //adds label to panel
+        puttyKnife.add(pk2); //adds label to panel
+        puttyKnife.add(r); //adds label to panel
+        puttyKnife.add(pk3); //adds label to panel
+        frame.add(puttyKnife); //adds panel to frame
+
+        JPanel handsaw = new JPanel(); //creates new JPanel
+        JLabel hs = new JLabel("15'' Handsaw               " + //creates new JLabel - spaces for format
+                "     "); //spaces for format
+        JTextField hs1 = new JTextField(5); //creates new JTextField
+        JLabel s = new JLabel("| $"); //creates new JLabel
+        JLabel hs2 = new JLabel("9.98"); //creates new JLabel
+        JLabel t = new JLabel("| $"); //creates new JLabel
+        JLabel hs3 = new JLabel(""); //creates new JLabel
+        bindUnitsEntered(hs1, hs2, hs3); //computes total price for specific item
+        handsaw.add(hs); //adds label to panel
+        handsaw.add(hs1); //adds textField to panel
+        handsaw.add(s); //adds label to panel
+        handsaw.add(hs2); //adds label to panel
+        handsaw.add(t); //adds label to panel
+        handsaw.add(hs3); //adds label to panel
+        frame.add(handsaw); //adds panel to frame
+
+        JPanel adjustWrench = new JPanel(); //creates new JPanel
+        JLabel aw = new JLabel("4 Pack Adjustable Wrench               " + //creates new JLabel - spaces for format
+                "     "); //spaces for format
+        JTextField aw1 = new JTextField(5); //creates new JTextField
+        JLabel u = new JLabel("| $"); //creates new JLabel
+        JLabel aw2 = new JLabel("25.99"); //creates new JLabel
+        JLabel v = new JLabel("| $"); //creates new JLabel
+        JLabel aw3 = new JLabel(""); //creates new JLabel
+        bindUnitsEntered(aw1, aw2, aw3); //computes total price for specific item
+        adjustWrench.add(aw); //adds label to panel
+        adjustWrench.add(aw1); //adds textField to panel
+        adjustWrench.add(u); //adds label to panel
+        adjustWrench.add(aw2); //adds label to panel
+        adjustWrench.add(v); //adds label to panel
+        adjustWrench.add(aw3); //adds label to panel
+        adjustWrench.add(adjustWrench); //adds panel to frame
     }
 
     private static void bindUnitsEntered(JTextField units, JLabel pricePerUnit, JLabel total) {
