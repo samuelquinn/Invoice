@@ -1,9 +1,16 @@
 import javax.swing.*;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.DocumentFilter;
+import javax.swing.text.PlainDocument;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyVetoException;
+import java.beans.VetoableChangeListener;
 
 /**
  * Samuel Quinn
@@ -43,7 +50,7 @@ class Invoice
         JLabel sd = new JLabel("57 PC Screwdriver Kit               " + //creates new JLabel - spaces for format
                 "     "); //spaces for format
         JTextField sd1 = new JTextField(5); //creates new JTextField
-        JTextField sd2 = new JTextField("$35.99", 5); //creates new JTextField
+        JLabel sd2 = new JLabel("35.99"); //creates new JTextField
         //<here>
 /*        String sd1Val = sd1.getText();
         String sd2Val = sd2.getText();
@@ -51,6 +58,7 @@ class Invoice
         double priceB = Double.parseDouble(sd2Val); //converts unit price to double
         double sdAmt = priceA * priceB;*/
         JLabel sd3 = new JLabel("$" /*+ sdAmt*/); //creates new JTextField
+        bindUnitsEntered(sd1, sd2, sd3);
         screwdriver.add(sd); //adds label to panel
         screwdriver.add(sd1); //adds textField to panel
         screwdriver.add(sd2); //adds textField to panel
@@ -148,18 +156,10 @@ class Invoice
         frame.add(pliers); //adds panel to frame
     }
 
-    private void bindUnitsEntered(JTextField units, JTextField pricePerUnit, JLabel total) {
+    private static void bindUnitsEntered(JTextField units, JLabel pricePerUnit, JLabel total) {
         units.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                units.addKeyListener(new KeyAdapter() {
-                    @Override
-                    public void keyPressed(KeyEvent ke) {
-                        super.keyPressed(ke);
-                        units.setEditable(ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9');
-                        total.setText("");
-                    }
-                });
                 String unitsVal = units.getText();
                 String pricePerUnitVal = pricePerUnit.getText();
                 double uni = Double.parseDouble(unitsVal);
@@ -168,5 +168,30 @@ class Invoice
                 total.setText("" + amt);
             }
         });
+        PlainDocument doc = (PlainDocument) units.getDocument();
+        doc.setDocumentFilter(new DocumentFilter() {
+            @Override
+            public void insertString(FilterBypass fb, int offset, String string, AttributeSet attr) throws BadLocationException {
+                if (Strings.isNumeric(string)) {
+                    super.insertString(fb, offset, string, attr);
+                }
+            }
+
+            @Override
+            public void replace(FilterBypass fb, int offset, int length, String text, AttributeSet attrs) throws BadLocationException {
+                if (text == null || Strings.isNumeric(text)) {
+                    super.replace(fb, offset, length, text, attrs);
+                }
+            }
+        });
+//        units.setInputVerifier(new InputVerifier() {
+//            @Override
+//            public boolean verify(JComponent component) {
+//                JTextField tf = (JTextField) component;
+//                String input = tf.getText();
+//                boolean isValid = Strings.isNumeric(input);
+//                return isValid;
+//            }
+//        });
     }
 }
