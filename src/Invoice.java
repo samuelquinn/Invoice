@@ -50,10 +50,10 @@ class Invoice
         JLabel sd = new JLabel("57 PC Screwdriver Kit               " + //creates new JLabel - spaces for format
                 "     "); //spaces for format
         JTextField sd1 = new JTextField(5); //creates new JTextField
-        JLabel a = new JLabel("$"); //creates new JLabel
+        JLabel a = new JLabel("| $"); //creates new JLabel
         JLabel sd2 = new JLabel("35.99"); //creates new JLabel
-        JLabel b = new JLabel("$"); //creates new JLabel
-        JLabel sd3 = new JLabel(""); //creates new JLabel
+        JLabel b = new JLabel("| $"); //creates new JLabel
+        JLabel sd3 = new JLabel(""); //computes total price for specific item
         bindUnitsEntered(sd1, sd2, sd3); //computes total price for specific item
         screwdriver.add(sd); //adds label to panel
         screwdriver.add(sd1); //adds textField to panel
@@ -64,12 +64,12 @@ class Invoice
         frame.add(screwdriver); //adds panel to frame
 
         JPanel measuringTape = new JPanel(); //creates new JPanel
-        JLabel mt = new JLabel("57 PC Screwdriver Kit               " + //creates new JLabel - spaces for format
+        JLabel mt = new JLabel("12' Measuring Tape               " + //creates new JLabel - spaces for format
                 "     "); //spaces for format
         JTextField mt1 = new JTextField(5); //creates new JTextField
-        JLabel c = new JLabel("$"); //creates new JLabel
+        JLabel c = new JLabel("| $"); //creates new JLabel
         JLabel mt2 = new JLabel("7.90"); //creates new JLabel
-        JLabel d = new JLabel("$"); //creates new JLabel
+        JLabel d = new JLabel("| $"); //creates new JLabel
         JLabel mt3 = new JLabel(""); //creates new JLabel
         bindUnitsEntered(mt1, mt2, mt3); //computes total price for specific item
         measuringTape.add(mt); //adds label to panel
@@ -80,8 +80,23 @@ class Invoice
         measuringTape.add(mt3); //adds label to panel
         frame.add(measuringTape); //adds panel to frame
 
+        JPanel toolbox = new JPanel(); //creates new JPanel
+        JLabel tb = new JLabel("14'' Toolbox               " + //creates new JLabel - spaces for format
+                "     "); //spaces for format
+        JTextField tb1 = new JTextField(5); //creates new JTextField
+        JLabel e = new JLabel("| $"); //creates new JLabel
+        JLabel tb2 = new JLabel("19.99"); //creates new JLabel
+        JLabel f = new JLabel("| $"); //creates new JLabel
+        JLabel tb3 = new JLabel(""); //creates new JLabel
+        bindUnitsEntered(tb1, tb2, tb3); //computes total price for specific item
+        toolbox.add(tb); //adds label to panel
+        toolbox.add(tb1); //adds textField to panel
+        toolbox.add(e); //adds label to panel
+        toolbox.add(tb2); //adds label to panel
+        toolbox.add(f); //adds label to panel
+        toolbox.add(tb3); //adds label to panel
+        frame.add(toolbox); //adds panel to frame
 
-//
 //        JPanel toolbox = new JPanel(); //creates new JPanel
 //        JLabel tb = new JLabel("14'' Toolbox                    " + //creates new JLabel - spaces for format
 //                "                   "); //spaces for format
