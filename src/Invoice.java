@@ -231,15 +231,16 @@ class Invoice
         adjustWrench.add(aw2); //adds label to panel
         adjustWrench.add(v); //adds label to panel
         adjustWrench.add(aw3); //adds label to panel
-        adjustWrench.add(adjustWrench); //adds panel to frame
+        frame.add(adjustWrench); //adds panel to frame
 
-        JPanel amtDue = new JPanel();
-        JLabel amount = new JLabel("Total Amount Due: ");
-        JLabel amt = new JLabel ("");
-        amountDue(sd3, mt3, tb3, ha3, dt3, fl3, pl3, uk3, pk3, hs3, aw3, amt);
-        amtDue.add(amount);
-        amtDue.add(amt);
-        frame.add(amtDue);
+        JPanel amtDue = new JPanel(); //creates new JPanel
+        JLabel amount = new JLabel("Total Amount Due: "); //creates new JLabel
+        JLabel amt = new JLabel (""); //creates new JLabel
+        amountDue(sd3, mt3, tb3, ha3, dt3, fl3, pl3, uk3, pk3, hs3, aw3, amt); //computes total amount due
+        amtDue.add(amount); //adds label to panel
+        amtDue.add(amt); //adds label to panel
+        frame.add(amtDue); //adds panel to frame
+
     }
 
     private static void bindUnitsEntered(JTextField units, JLabel pricePerUnit, JLabel total) {
@@ -272,7 +273,7 @@ class Invoice
         });
     }
     private static void amountDue(JLabel a, JLabel b, JLabel c, JLabel d, JLabel e, JLabel f, JLabel g, JLabel h,
-                                  JLabel i, JLabel j, JLabel k, JLabel total) {
+                                  JLabel i, JLabel j, JLabel k, JLabel l) {
         String aVal = a.getText();
         String bVal = b.getText();
         String cVal = c.getText();
@@ -297,6 +298,6 @@ class Invoice
         double kaValUnits = Double.parseDouble(kVal);
         double amtDue = aValUnits + bValUnits + cValUnits + dValUnits + eValUnits + fValUnits + gValUnits +
                 hValUnits + iValUnits + jValUnits + kaValUnits;
-        total.setText("" + amtDue);
+        l.setText("" + amtDue);
     }
 }
