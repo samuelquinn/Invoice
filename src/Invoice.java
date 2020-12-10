@@ -23,6 +23,11 @@ class Invoice extends JFrame
         super ("Tools Invoice");
         GridLayout layout = new GridLayout(20, 4); //format for frame
         setLayout(layout);
+
+        JPanel frameTitle = new JPanel(); //creates new JPanel
+        JLabel title = new JLabel("Tools Invoice"); //creates new JLabel
+        frameTitle.add(title); //adds label to panel
+        add(frameTitle); //adds panel to frame
     }
 
     public static void main(String[] args)
@@ -32,10 +37,7 @@ class Invoice extends JFrame
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH); //sets dimensions for window
         frame.setVisible(true); //makes frame visible
 //
-//        JPanel frameTitle = new JPanel(); //creates new JPanel
-//        JLabel title = new JLabel("Tools Invoice"); //creates new JLabel
-//        frameTitle.add(title); //adds label to panel
-//        frame.add(frameTitle); //adds panel to frame
+
 //
 //        JPanel billingAddress = new JPanel(); //creates new JPanel
 //        JLabel ba = new JLabel("Enter Billing Address: "); //creates new JLabel
