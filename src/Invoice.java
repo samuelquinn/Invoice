@@ -4,7 +4,6 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.DocumentFilter;
 import javax.swing.text.PlainDocument;
 import java.awt.*;
-import java.awt.event.*;
 
 /**
  * Samuel Quinn
@@ -17,8 +16,7 @@ import java.awt.event.*;
     // 3. Capture pertinent ui elements as members of Invoice.
     // 4. Create Invoice in main and display it.
 
-class Invoice extends JFrame
-{
+class Invoice extends JFrame {
     private final JTextField qScrewdriver;
     private final JLabel tScrewdriver;
     private final JTextField qMeasuringTape;
@@ -41,9 +39,10 @@ class Invoice extends JFrame
     private final JLabel tHandsaw;
     private final JTextField qAdjustWrench;
     private final JLabel tAdjustWrench;
+    private final JLabel amount;
 
     public Invoice() {
-        super ("Tools Invoice");
+        super("Tools Invoice");
         GridLayout layout = new GridLayout(20, 4); //format for frame
         setLayout(layout);
 
@@ -251,43 +250,32 @@ class Invoice extends JFrame
         adjustWrench.add(v); //adds label to panel
         adjustWrench.add(tAdjustWrench); //adds label to panel
         add(adjustWrench); //adds panel to frame
+
+        JPanel amtDue = new JPanel(); //creates new JPanel
+        JLabel amt = new JLabel("Total Amount Due: $"); //creates new JLabel
+        amount = new JLabel(""); //creates new JLabel
+        amtDue.add(amt); //adds label to panel
+        amtDue.add(amount); //adds label to panel
+        add(amtDue); //adds panel to frame
+        totalAmount();
     }
 
-    private void memberAccessTest()
-    {
-
-    }
-
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         Invoice frame = new Invoice();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closes window
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH); //sets dimensions for window
         frame.setVisible(true); //makes frame visible
-
-
-
-
-//        JPanel amtDue = new JPanel(); //creates new JPanel
-//        JLabel amount = new JLabel("Total Amount Due: "); //creates new JLabel
-//        JLabel amt = new JLabel (""); //creates new JLabel
-//        amountDue(sd3, mt3, tb3, ha3, dt3, fl3, pl3, uk3, pk3, hs3, aw3, amt); //computes total amount due
-//        amtDue.add(amount); //adds label to panel
-//        amtDue.add(amt); //adds label to panel
-//        frame.add(amtDue); //adds panel to frame
     }
 
     private void bindUnitsEntered(JTextField units, JLabel pricePerUnit, JLabel total) {
-        units.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String unitsVal = units.getText();
-                String pricePerUnitVal = pricePerUnit.getText();
-                double uni = Double.parseDouble(unitsVal);
-                double pri = Double.parseDouble(pricePerUnitVal);
-                double amt = uni * pri;
-                total.setText("" + amt);
-            }
+        units.addActionListener(e -> {
+            String unitsVal = units.getText();
+            String pricePerUnitVal = pricePerUnit.getText();
+            double uni = Strings.convertStringToDouble(unitsVal);
+            double pri = Strings.convertStringToDouble(pricePerUnitVal);
+            double amt = uni * pri;
+            total.setText("" + amt);
+            totalAmount();
         });
         PlainDocument doc = (PlainDocument) units.getDocument();
         doc.setDocumentFilter(new DocumentFilter() {
@@ -306,33 +294,36 @@ class Invoice extends JFrame
             }
         });
     }
-    private void amountDue(JLabel a, JLabel b, JLabel c, JLabel d, JLabel e, JLabel f, JLabel g, JLabel h,
-                                  JLabel i, JLabel j, JLabel k, JLabel l) {
 
-//        String aVal = a.getText();
-//        String bVal = b.getText();
-//        String cVal = c.getText();
-//        String dVal = d.getText();
-//        String eVal = e.getText();
-//        String fVal = f.getText();
-//        String gVal = g.getText();
-//        String hVal = h.getText();
-//        String iVal = i.getText();
-//        String jVal = j.getText();
-//        String kVal = k.getText();
-//        double aValUnits = Double.parseDouble(aVal);
-//        double bValUnits = Double.parseDouble(bVal);
-//        double cValUnits = Double.parseDouble(cVal);
-//        double dValUnits = Double.parseDouble(dVal);
-//        double eValUnits = Double.parseDouble(eVal);
-//        double fValUnits = Double.parseDouble(fVal);
-//        double gValUnits = Double.parseDouble(gVal);
-//        double hValUnits = Double.parseDouble(hVal);
-//        double iValUnits = Double.parseDouble(iVal);
-//        double jValUnits = Double.parseDouble(jVal);
-//        double kaValUnits = Double.parseDouble(kVal);
-//        double amtDue = aValUnits + bValUnits + cValUnits + dValUnits + eValUnits + fValUnits + gValUnits +
-//                hValUnits + iValUnits + jValUnits + kaValUnits;
-//        l.setText("" + amtDue);
+
+
+    private void totalAmount()
+    {
+        double totalAmount = 0.0;
+        String screwdriverVal = tScrewdriver.getText();
+        String measuringTapeVal = tMeasuringTape.getText();
+        String toolboxVal = tToolbox.getText();
+        String hammerVal = tHammer.getText();
+        String ductTapeVal = tDuctTape.getText();
+        String flashlightVal = tFlashlight.getText();
+        String pliersVal = tPliers.getText();
+        String utilityKnifeVal = tUtilityKnife.getText();
+        String puttyKnifeVal = tPuttyKnife.getText();
+        String handsawVal = tHandsaw.getText();
+        String adjustWrenchVal = tAdjustWrench.getText();
+        double ScrewdriverVal = Strings.convertStringToDouble(screwdriverVal);
+        double MeasuringTapeVal = Strings.convertStringToDouble(measuringTapeVal);
+        double ToolboxVal = Strings.convertStringToDouble(toolboxVal);
+        double HammerVal = Strings.convertStringToDouble(hammerVal);
+        double DuctTapeVal = Strings.convertStringToDouble(ductTapeVal);
+        double FlashlightVal = Strings.convertStringToDouble(flashlightVal);
+        double PliersVal = Strings.convertStringToDouble(pliersVal);
+        double UtilityKnifeVal = Strings.convertStringToDouble(utilityKnifeVal);
+        double PuttyKnifeVal = Strings.convertStringToDouble(puttyKnifeVal);
+        double HandsawVal = Strings.convertStringToDouble(handsawVal);
+        double AdjustWrenchVal = Strings.convertStringToDouble(adjustWrenchVal);
+        totalAmount += ScrewdriverVal + MeasuringTapeVal + ToolboxVal + HammerVal + DuctTapeVal + FlashlightVal + PliersVal +
+                UtilityKnifeVal + PuttyKnifeVal + HandsawVal + AdjustWrenchVal;
+        amount.setText("" + totalAmount);
     }
 }

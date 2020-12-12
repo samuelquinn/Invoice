@@ -10,4 +10,15 @@ public class Strings
         }
         return true;
     }
+
+    public static double convertStringToDouble(String value){
+        try
+        {
+            return Double.parseDouble(value);
+        }
+        catch (Exception e)
+        {
+            return 0.0;
+        }
+    }
 }
