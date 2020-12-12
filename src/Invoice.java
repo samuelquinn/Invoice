@@ -1,55 +1,55 @@
-import javax.swing.*;
-import javax.swing.text.AttributeSet;
-import javax.swing.text.BadLocationException;
-import javax.swing.text.DocumentFilter;
-import javax.swing.text.PlainDocument;
-import java.awt.*;
+import javax.swing.*; //imports javax.swing.*
+import javax.swing.text.AttributeSet; //imports javax.swing.text.AttributeSet
+import javax.swing.text.BadLocationException; //imports javax.swing.text.BadLocationException
+import javax.swing.text.DocumentFilter; //imports javax.swing.text.DocumentFilter
+import javax.swing.text.PlainDocument; //imports javax.swing.text.PlainDocument
+import java.awt.*; //imports java.awt.*
 
 /**
  * Samuel Quinn
  * 12/5/20
  */
 
-//Plan
-    // 1. Make Invoice JFrame.
-    // 2. Move all of main to Invoice's constructor.
-    // 3. Capture pertinent ui elements as members of Invoice.
-    // 4. Create Invoice in main and display it.
-
 class Invoice extends JFrame {
-    private final JTextField qScrewdriver;
-    private final JLabel tScrewdriver;
-    private final JTextField qMeasuringTape;
-    private final JLabel tMeasuringTape;
-    private final JTextField qToolbox;
-    private final JLabel tToolbox;
-    private final JTextField qHammer;
-    private final JLabel tHammer;
-    private final JTextField qDuctTape;
-    private final JLabel tDuctTape;
-    private final JTextField qFlashlight;
-    private final JLabel tFlashlight;
-    private final JTextField qPliers;
-    private final JLabel tPliers;
-    private final JTextField qUtilityKnife;
-    private final JLabel tUtilityKnife;
-    private final JTextField qPuttyKnife;
-    private final JLabel tPuttyKnife;
-    private final JTextField qHandsaw;
-    private final JLabel tHandsaw;
-    private final JTextField qAdjustWrench;
-    private final JLabel tAdjustWrench;
-    private final JLabel amount;
+    private final JTextField qScrewdriver; //new member of class
+    private final JLabel tScrewdriver; //new member of class
+    private final JTextField qMeasuringTape; //new member of class
+    private final JLabel tMeasuringTape; //new member of class
+    private final JTextField qToolbox; //new member of class
+    private final JLabel tToolbox; //new member of class
+    private final JTextField qHammer; //new member of class
+    private final JLabel tHammer; //new member of class
+    private final JTextField qDuctTape; //new member of class
+    private final JLabel tDuctTape; //new member of class
+    private final JTextField qFlashlight; //new member of class
+    private final JLabel tFlashlight; //new member of class
+    private final JTextField qPliers; //new member of class
+    private final JLabel tPliers; //new member of class
+    private final JTextField qUtilityKnife; //new member of class
+    private final JLabel tUtilityKnife; //new member of class
+    private final JTextField qPuttyKnife; //new member of class
+    private final JLabel tPuttyKnife; //new member of class
+    private final JTextField qHandsaw; //new member of class
+    private final JLabel tHandsaw; //new member of class
+    private final JTextField qAdjustWrench; //new member of class
+    private final JLabel tAdjustWrench; //new member of class
+    private final JLabel amount; //new member of class
 
-    public Invoice() {
+    public Invoice() //constructor to initialize all parts of frame
+    {
         super("Tools Invoice");
         GridLayout layout = new GridLayout(20, 4); //format for frame
-        setLayout(layout);
+        setLayout(layout); //sets layout
 
         JPanel frameTitle = new JPanel(); //creates new JPanel
         JLabel title = new JLabel("Tools Invoice"); //creates new JLabel
         frameTitle.add(title); //adds label to panel
         add(frameTitle); //adds panel to frame
+
+        JPanel extra = new JPanel(); //creates new JPanel - to create space between title and address
+        JLabel extraSpace = new JLabel(""); //creates new JLabel - to create space between title and address
+        extra.add(extraSpace); //adds label to panel
+        add(extra); //adds panel to frame
 
         JPanel billingAddress = new JPanel(); //creates new JPanel
         JLabel ba = new JLabel("Enter Billing Address: "); //creates new JLabel
@@ -58,15 +58,28 @@ class Invoice extends JFrame {
         billingAddress.add(ba1); //adds textField to panel
         add(billingAddress); //adds panel to frame
 
+        JPanel billingAddressVal = new JPanel(); //creates new JPanel
+        JLabel baVal = new JLabel("Billing Address: "); //creates new JLabel
+        JLabel baV = new JLabel(""); //creates new JLabel
+        billingAddressRepeat(ba1, baV); //prints user address input
+        billingAddressVal.add(baVal); //adds label to panel
+        billingAddressVal.add(baV); //adds label to panel
+        add(billingAddressVal); //adds panel to frame
+
+        JPanel extra2 = new JPanel(); //creates new JPanel - to create space between address and items
+        JLabel extraSpace2 = new JLabel(""); //creates new JLabel - to create space between address and items
+        extra2.add(extraSpace2); //adds label to panel
+        add(extra2); //adds panel to frame
+
         JPanel headers = new JPanel(); //creates new JPanel
-        JLabel labels = new JLabel("Description:                       " + //creates new JLabel - for format
-                "          Quantity | Unit Price | Total"); //for format
+        JLabel labels = new JLabel("Description:                            " + //creates new JLabel - for format
+                "                       Quantity | Unit Price | Total"); //for format
         headers.add(labels); //adds label to panel
         add(headers); //adds panel to frame
 
         JPanel screwdriver = new JPanel(); //creates new JPanel
-        JLabel sd = new JLabel("57 PC Screwdriver Kit               " + //creates new JLabel - spaces for format
-                "     "); //spaces for format
+        JLabel sd = new JLabel("57 PC Screwdriver Kit                " + //creates new JLabel - spaces for format
+                "            "); //spaces for format
         qScrewdriver = new JTextField(5); //creates new JTextField
         JLabel a = new JLabel("| $"); //creates new JLabel
         JLabel sd2 = new JLabel("35.99"); //creates new JLabel
@@ -82,12 +95,12 @@ class Invoice extends JFrame {
         add(screwdriver); //adds panel to frame
 
         JPanel measuringTape = new JPanel(); //creates new JPanel
-        JLabel mt = new JLabel("12' Measuring Tape               " + //creates new JLabel - spaces for format
-                "     "); //spaces for format
+        JLabel mt = new JLabel("12' Measuring Tape                  " + //creates new JLabel - spaces for format
+                "               "); //spaces for format
         qMeasuringTape = new JTextField(5); //creates new JTextField
         JLabel c = new JLabel("| $"); //creates new JLabel
         JLabel mt2 = new JLabel("7.90"); //creates new JLabel
-        JLabel d = new JLabel("| $"); //creates new JLabel
+        JLabel d = new JLabel(" | $"); //creates new JLabel
         tMeasuringTape = new JLabel(""); //creates new JLabel
         bindUnitsEntered(qMeasuringTape, mt2, tMeasuringTape); //computes total price for specific item
         measuringTape.add(mt); //adds label to panel
@@ -99,8 +112,8 @@ class Invoice extends JFrame {
         add(measuringTape); //adds panel to frame
 
         JPanel toolbox = new JPanel(); //creates new JPanel
-        JLabel tb = new JLabel("14'' Toolbox               " + //creates new JLabel - spaces for format
-                "     "); //spaces for format
+        JLabel tb = new JLabel("14'' Toolbox                     " + //creates new JLabel - spaces for format
+                "                         "); //spaces for format
         qToolbox = new JTextField(5); //creates new JTextField
         JLabel e = new JLabel("| $"); //creates new JLabel
         JLabel tb2 = new JLabel("19.99"); //creates new JLabel
@@ -116,8 +129,8 @@ class Invoice extends JFrame {
         add(toolbox); //adds panel to frame
 
         JPanel hammer = new JPanel(); //creates new JPanel
-        JLabel ha = new JLabel("16oz Hammer               " + //creates new JLabel - spaces for format
-                "     "); //spaces for format
+        JLabel ha = new JLabel("16oz Hammer                         " + //creates new JLabel - spaces for format
+                "                  "); //spaces for format
         qHammer = new JTextField(5); //creates new JTextField
         JLabel g = new JLabel("| $"); //creates new JLabel
         JLabel ha2 = new JLabel("11.98"); //creates new JLabel
@@ -133,8 +146,8 @@ class Invoice extends JFrame {
         add(hammer); //adds panel to frame
 
         JPanel ductTape = new JPanel(); //creates new JPanel
-        JLabel dt = new JLabel("3 Pack Duct Tape               " + //creates new JLabel - spaces for format
-                "     "); //spaces for format
+        JLabel dt = new JLabel("3 Pack Duct Tape                      " + //creates new JLabel - spaces for format
+                "             "); //spaces for format
         qDuctTape = new JTextField(5); //creates new JTextField
         JLabel i = new JLabel("| $"); //creates new JLabel
         JLabel dt2 = new JLabel("14.99"); //creates new JLabel
@@ -151,11 +164,11 @@ class Invoice extends JFrame {
 
         JPanel flashlight = new JPanel(); //creates new JPanel
         JLabel fl = new JLabel("2 Pack Flashlight               " + //creates new JLabel - spaces for format
-                "     "); //spaces for format
+                "                    "); //spaces for format
         qFlashlight = new JTextField(5); //creates new JTextField
         JLabel k = new JLabel("| $"); //creates new JLabel
         JLabel fl2 = new JLabel("9.97"); //creates new JLabel
-        JLabel l = new JLabel("| $"); //creates new JLabel
+        JLabel l = new JLabel(" | $"); //creates new JLabel
         tFlashlight = new JLabel(""); //creates new JLabel
         bindUnitsEntered(qFlashlight, fl2, tFlashlight); //computes total price for specific item
         flashlight.add(fl); //adds label to panel
@@ -168,7 +181,7 @@ class Invoice extends JFrame {
 
         JPanel pliers = new JPanel(); //creates new JPanel
         JLabel pl = new JLabel("6 Pack Pliers               " + //creates new JLabel - spaces for format
-                "     "); //spaces for format
+                "                           "); //spaces for format
         qPliers = new JTextField(5); //creates new JTextField
         JLabel m = new JLabel("| $"); //creates new JLabel
         JLabel pl2 = new JLabel("21.98"); //creates new JLabel
@@ -185,7 +198,7 @@ class Invoice extends JFrame {
 
         JPanel utilityKnife = new JPanel(); //creates new JPanel
         JLabel uk = new JLabel("2 Pack Utility Knife               " + //creates new JLabel - spaces for format
-                "     "); //spaces for format
+                "                "); //spaces for format
         qUtilityKnife = new JTextField(5); //creates new JTextField
         JLabel o = new JLabel("| $"); //creates new JLabel
         JLabel uk2 = new JLabel("15.99"); //creates new JLabel
@@ -202,7 +215,7 @@ class Invoice extends JFrame {
 
         JPanel puttyKnife = new JPanel(); //creates new JPanel
         JLabel pk = new JLabel("3 Pack Putty Knife               " + //creates new JLabel - spaces for format
-                "     "); //spaces for format
+                "                "); //spaces for format
         qPuttyKnife = new JTextField(5); //creates new JTextField
         JLabel q = new JLabel("| $"); //creates new JLabel
         JLabel pk2 = new JLabel("10.45"); //creates new JLabel
@@ -219,11 +232,11 @@ class Invoice extends JFrame {
 
         JPanel handsaw = new JPanel(); //creates new JPanel
         JLabel hs = new JLabel("15'' Handsaw               " + //creates new JLabel - spaces for format
-                "     "); //spaces for format
+                "                         "); //spaces for format
         qHandsaw = new JTextField(5); //creates new JTextField
         JLabel s = new JLabel("| $"); //creates new JLabel
         JLabel hs2 = new JLabel("9.98"); //creates new JLabel
-        JLabel t = new JLabel("| $"); //creates new JLabel
+        JLabel t = new JLabel(" | $"); //creates new JLabel
         tHandsaw = new JLabel(""); //creates new JLabel
         bindUnitsEntered(qHandsaw, hs2, tHandsaw); //computes total price for specific item
         handsaw.add(hs); //adds label to panel
@@ -235,7 +248,7 @@ class Invoice extends JFrame {
         add(handsaw); //adds panel to frame
 
         JPanel adjustWrench = new JPanel(); //creates new JPanel
-        JLabel aw = new JLabel("4 Pack Adjustable Wrench               " + //creates new JLabel - spaces for format
+        JLabel aw = new JLabel("4 Pack Adjustable Wrench             " + //creates new JLabel - spaces for format
                 "     "); //spaces for format
         qAdjustWrench = new JTextField(5); //creates new JTextField
         JLabel u = new JLabel("| $"); //creates new JLabel
@@ -251,79 +264,99 @@ class Invoice extends JFrame {
         adjustWrench.add(tAdjustWrench); //adds label to panel
         add(adjustWrench); //adds panel to frame
 
+        JPanel extra3 = new JPanel(); //creates new JPanel - to create space between items and total amount due
+        JLabel extraSpace3 = new JLabel(""); //creates new JLabel - to create space between items and total amount due
+        extra2.add(extraSpace3); //adds label to panel
+        add(extra3); //adds panel to frame
+
         JPanel amtDue = new JPanel(); //creates new JPanel
         JLabel amt = new JLabel("Total Amount Due: $"); //creates new JLabel
         amount = new JLabel(""); //creates new JLabel
         amtDue.add(amt); //adds label to panel
         amtDue.add(amount); //adds label to panel
         add(amtDue); //adds panel to frame
-        totalAmount();
+        totalAmount(); //sets all total price labels to a default value of 0
     }
 
-    public static void main(String[] args) {
-        Invoice frame = new Invoice();
+    public static void main(String[] args) //main method
+    {
+        Invoice frame = new Invoice(); //builds new frame
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closes window
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH); //sets dimensions for window
         frame.setVisible(true); //makes frame visible
     }
 
-    private void bindUnitsEntered(JTextField units, JLabel pricePerUnit, JLabel total) {
-        units.addActionListener(e -> {
-            String unitsVal = units.getText();
-            String pricePerUnitVal = pricePerUnit.getText();
-            double uni = Strings.convertStringToDouble(unitsVal);
-            double pri = Strings.convertStringToDouble(pricePerUnitVal);
-            double amt = uni * pri;
-            total.setText("" + amt);
-            totalAmount();
+    private void bindUnitsEntered(JTextField units, JLabel pricePerUnit, JLabel total) //method to compute total price for each item and price overall
+    {
+        units.addActionListener(e ->  //adds ActionListener to units
+        {
+            String unitsVal = units.getText(); //String to collect units value
+            String pricePerUnitVal = pricePerUnit.getText(); //String to collect pricePerUnit value
+            double uni = Strings.convertStringToDouble(unitsVal); //converts String to double
+            double pri = Strings.convertStringToDouble(pricePerUnitVal); //converts String to double
+            double amt = uni * pri; //computes total price for each item
+            total.setText("" + amt); //prints total price for each item
+            totalAmount(); //updates price overall
         });
-        PlainDocument doc = (PlainDocument) units.getDocument();
-        doc.setDocumentFilter(new DocumentFilter() {
-            @Override
-            public void insertString(FilterBypass fb, int offset, String string, AttributeSet attr) throws BadLocationException {
-                if (Strings.isNumeric(string)) {
-                    super.insertString(fb, offset, string, attr);
+        PlainDocument doc = (PlainDocument) units.getDocument(); //adds text reader to units
+        doc.setDocumentFilter(new DocumentFilter() //adds DocumentFilter to doc
+        {
+            @Override //overrides
+            public void insertString(FilterBypass fb, int offset, String string, AttributeSet attr) throws BadLocationException //makes sure numerical input is added
+            {
+                if (Strings.isNumeric(string)) //checks if input is numerical
+                {
+                    super.insertString(fb, offset, string, attr); //allows user's input
                 }
             }
 
-            @Override
-            public void replace(FilterBypass fb, int offset, int length, String text, AttributeSet attrs) throws BadLocationException {
-                if (text == null || Strings.isNumeric(text)) {
-                    super.replace(fb, offset, length, text, attrs);
+            @Override //overrides
+            public void replace(FilterBypass fb, int offset, int length, String text, AttributeSet attrs) throws BadLocationException //makes sure numerical input is replaced with a numerical input
+            {
+                if (text == null || Strings.isNumeric(text)) //checks if replacement is numerical
+                {
+                    super.replace(fb, offset, length, text, attrs); //allows replacement
                 }
             }
         });
     }
 
-
-
-    private void totalAmount()
+    private void billingAddressRepeat(JTextField billingAddress, JLabel billAddress) //prints user Address input
     {
-        double totalAmount = 0.0;
-        String screwdriverVal = tScrewdriver.getText();
-        String measuringTapeVal = tMeasuringTape.getText();
-        String toolboxVal = tToolbox.getText();
-        String hammerVal = tHammer.getText();
-        String ductTapeVal = tDuctTape.getText();
-        String flashlightVal = tFlashlight.getText();
-        String pliersVal = tPliers.getText();
-        String utilityKnifeVal = tUtilityKnife.getText();
-        String puttyKnifeVal = tPuttyKnife.getText();
-        String handsawVal = tHandsaw.getText();
-        String adjustWrenchVal = tAdjustWrench.getText();
-        double ScrewdriverVal = Strings.convertStringToDouble(screwdriverVal);
-        double MeasuringTapeVal = Strings.convertStringToDouble(measuringTapeVal);
-        double ToolboxVal = Strings.convertStringToDouble(toolboxVal);
-        double HammerVal = Strings.convertStringToDouble(hammerVal);
-        double DuctTapeVal = Strings.convertStringToDouble(ductTapeVal);
-        double FlashlightVal = Strings.convertStringToDouble(flashlightVal);
-        double PliersVal = Strings.convertStringToDouble(pliersVal);
-        double UtilityKnifeVal = Strings.convertStringToDouble(utilityKnifeVal);
-        double PuttyKnifeVal = Strings.convertStringToDouble(puttyKnifeVal);
-        double HandsawVal = Strings.convertStringToDouble(handsawVal);
-        double AdjustWrenchVal = Strings.convertStringToDouble(adjustWrenchVal);
-        totalAmount += ScrewdriverVal + MeasuringTapeVal + ToolboxVal + HammerVal + DuctTapeVal + FlashlightVal + PliersVal +
-                UtilityKnifeVal + PuttyKnifeVal + HandsawVal + AdjustWrenchVal;
-        amount.setText("" + totalAmount);
+        billingAddress.addActionListener(e -> //adds ActionListener to billingAddress
+        {
+            String baV = billingAddress.getText(); //String to get billingAddress value
+            billAddress.setText("" + baV); //sets text of JLabel to print address input
+        });
+    }
+
+    private void totalAmount() //computes total amount due
+    {
+        double totalAmount = 0.0; //creates new double variable
+        String screwdriverVal = tScrewdriver.getText(); //String to get tScrewdriver value
+        String measuringTapeVal = tMeasuringTape.getText(); //String to get tMeasuringTape value
+        String toolboxVal = tToolbox.getText(); //String to get tToolbox value
+        String hammerVal = tHammer.getText(); //String to get tHammer value
+        String ductTapeVal = tDuctTape.getText(); //String to get tDuctTape value
+        String flashlightVal = tFlashlight.getText(); //String to get tFlashlight value
+        String pliersVal = tPliers.getText(); //String to get tPliers value
+        String utilityKnifeVal = tUtilityKnife.getText(); //String to get tUtilityKnife value
+        String puttyKnifeVal = tPuttyKnife.getText(); //String to get tPuttyKnife value
+        String handsawVal = tHandsaw.getText(); //String to get tHandsaw value
+        String adjustWrenchVal = tAdjustWrench.getText(); //String to get tAdjustWrench value
+        double ScrewdriverVal = Strings.convertStringToDouble(screwdriverVal); //converts String to double
+        double MeasuringTapeVal = Strings.convertStringToDouble(measuringTapeVal); //converts String to double
+        double ToolboxVal = Strings.convertStringToDouble(toolboxVal); //converts String to double
+        double HammerVal = Strings.convertStringToDouble(hammerVal); //converts String to double
+        double DuctTapeVal = Strings.convertStringToDouble(ductTapeVal); //converts String to double
+        double FlashlightVal = Strings.convertStringToDouble(flashlightVal); //converts String to double
+        double PliersVal = Strings.convertStringToDouble(pliersVal); //converts String to double
+        double UtilityKnifeVal = Strings.convertStringToDouble(utilityKnifeVal); //converts String to double
+        double PuttyKnifeVal = Strings.convertStringToDouble(puttyKnifeVal); //converts String to double
+        double HandsawVal = Strings.convertStringToDouble(handsawVal); //converts String to double
+        double AdjustWrenchVal = Strings.convertStringToDouble(adjustWrenchVal); //converts String to double
+        totalAmount += ScrewdriverVal + MeasuringTapeVal + ToolboxVal + HammerVal + DuctTapeVal + FlashlightVal + PliersVal + //computes total amount due
+                UtilityKnifeVal + PuttyKnifeVal + HandsawVal + AdjustWrenchVal; //computes total amount due
+        amount.setText("" + totalAmount); //prints total amount due
     }
 }
